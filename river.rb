@@ -24,4 +24,8 @@ class River
     @fish.delete_if { |fish| fish == eaten_fish }
   end
 
+  def number_of_fish
+    return @fish.count()
+  end
+
 end
