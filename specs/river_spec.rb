@@ -31,8 +31,15 @@ class RiverTest < MiniTest::Test
 
   def test_bear_taking_fish_from_river
     @river.bear_taking_fish_from_river(@bear1, @fish1)
-    assert_equal(1, @river.fish().count())
+    assert_equal(1, @river.number_of_fish())
     assert_equal(1, @bear1.number_of_fish_in_stomach())
+  end
+
+  def test_bear_cannot_take_fish_from_empty_river
+    river = River.new("Dee", [@bear1], [])
+    river.bear_taking_fish_from_river(@bear1, nil)
+    assert_equal(0, river.number_of_fish())
+    assert_equal(0, @bear1.number_of_fish_in_stomach())
   end
 
   def test_number_of_fish_in_river

@@ -16,12 +16,14 @@ class River
   end
 
   def bear_taking_fish_from_river(bear_eating, eaten_fish)
-    for bear in @bears
-      if bear == bear_eating
-        bear.add_fish_to_stomach(eaten_fish)
+    if eaten_fish
+      for bear in @bears
+        if bear == bear_eating
+          bear.add_fish_to_stomach(eaten_fish)
+        end
       end
     end
-    @fish.delete_if { |fish| fish == eaten_fish }
+      @fish.delete_if { |fish| fish == eaten_fish }
   end
 
   def number_of_fish
